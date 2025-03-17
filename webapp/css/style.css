@@ -1,0 +1,73 @@
+
+#__title0-inner{
+    font-size:1.2rem;
+    color: #003E87;
+}
+#__xmlview0--root1-title-inner{
+    font-size:1.5rem;
+    color: #003E87;
+    margin-left: 3rem;
+}
+.greetingBox {
+    margin-top: 20%;
+    margin-left: 20%;
+}
+.inputText{
+    margin-left:20% !important;
+}
+.inputContainer{
+
+    margin-right: 20%;
+}
+
+.sendBtn {
+    margin-right: 30% !important;
+    display: block !important;
+}
+
+
+.chatFooterBar {
+    background-color: #EFF1F2 !important;
+    box-shadow: none !important;
+    border: none !important;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerText {
+    margin-top: 1%;
+    margin-bottom: 1%;  /* Reduced from 30% */
+    margin-left: 5%;
+    text-align: center !important;
+ }
+
+ 
+
+.userName{
+    font-size: 20px !important;
+}
+
+.welcomeMessage{
+    font-size: 36px !important;
+    font-weight: bold;
+}
+
+#__xmlview0--root1-cont{
+    background-color: white;
+}
+.userInteractionBox{
+    border-radius: 4px;
+    background-color:#EFF1F2  !important;
+    margin-top: 9%;
+
+}
+.suggestionToggle{
+    margin-left:70%;
+}
+.hintText{
+    margin-top: 1%;
+    border-radius: 4px;
+    background-color:#EFF1F2 ;
+    padding:1%;
+}

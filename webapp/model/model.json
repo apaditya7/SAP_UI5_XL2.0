@@ -1,0 +1,26 @@
+{
+	"selectedKey": "root1",
+	"navigation": [
+		{
+			"title": "Chat",
+			"icon": "sap-icon://notification-2",
+			"expanded": true,
+			"key": "root1"
+		},
+		{
+			"title": "Chat History",
+			"icon": "sap-icon://history",
+			"key": "root2"
+		}
+	],
+	"fixedNavigation": [
+		{
+			"title": "Workspaces",
+			"icon": "sap-icon://group"
+		},
+		{
+			"title": "Settings",
+			"icon": "sap-icon://settings"
+		}
+	]
+}

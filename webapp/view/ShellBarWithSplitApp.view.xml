@@ -1,0 +1,156 @@
+<mvc:View height="100%"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+  	xmlns:core="sap.ui.core"
+	xmlns:card="sap.f.cards"
+	xmlns:tnt="sap.tnt" controllerName="sap.f.sample.ShellBarWithSplitApp.controller.ShellBarWithSplitApp">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<f:ShellBar title="GenAI XL"
+				showMenuButton="true"
+				homeIcon="../assets/images/logo_sap.png"
+				menuButtonPressed="onMenuButtonPress">
+				<f:profile>
+					<Avatar initials="UI"/>
+				</f:profile>
+				<f:searchManager>
+					<f:SearchManager/>
+				</f:searchManager>
+				<f:additionalContent>
+					<Button
+						icon="sap-icon://sys-help"
+						press="onSystemPress"
+						tooltip="System Link"
+						/>
+					<Button
+						icon="sap-icon://education"
+						press="onEducationPress"
+						tooltip="Education Link"/>
+				</f:additionalContent>
+			</f:ShellBar>
+		</tnt:header>
+		<tnt:sideContent>
+			<core:Fragment
+					fragmentName="sap.f.sample.ShellBarWithSplitApp.view.SideNavigation"
+					type="XML" />
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer" class="pageLayout" initialPage="root1">
+				<pages>
+						<Page title="Chat" id="root1">
+							<headerContent>
+								<MenuButton id="downloadBtn" text="Download" type="Ghost" enabled="false">
+									<menu>
+										<Menu itemSelected="onMenuAction">
+											<MenuItem text="Download as PDF" icon="sap-icon://pdf-attachment" />
+											<MenuItem text="Download as Word" icon="sap-icon://save" />
+										</Menu>
+									</menu>
+								</MenuButton>
+								<Button 
+								    id="newChatButton"
+									text="Start a New Chat" 
+									icon="sap-icon://write-new" 
+									press="onStartNewChat"
+									enabled="false"
+									type="Ghost"/>
+							</headerContent>
+							<content>
+								<VBox id="greetingBox" class="greetingBox">
+									<Text text="Hello Maryna," class="sapUiSmallMarginBottom sapUiTinyMarginTop userName" />
+									<Text text="How can I help you?" class="welcomeMessage" />
+									<Text id="hintText" text='Talk to me naturally. For example, "Create a meeting agenda for a retrospective"' class="hintText" />
+								</VBox>
+								<VBox id="userInteractionBox" class="userInteractionBox" width="100%">
+									<HBox id="suggestionToggle" class="suggestionToggle">
+										<Label class="sapUiSmallMarginTop" text="Show suggestions"/>
+										<Switch state="true" change=".onTogglePopoverSaveVisibility"/>
+									</HBox>
+									<HBox id="suggestionButtons"  class="suggestionButtons" alignItems="Center" justifyContent="Center">
+										<f:Card class="sapUiMediumMargin" width="300px" press=".onClicked" semanticRole="ListItem">
+												<f:header>
+													<card:Header
+														title="Write an Email"
+														subtitle="Let me help to write an appealing email."
+														iconSrc="sap-icon://write-new"
+														press=".onClicked"
+														 />
+												</f:header>
+										</f:Card>
+										<f:Card class="sapUiMediumMargin" width="300px" press=".onClicked" semanticRole="ListItem">
+												<f:header>
+													<card:Header
+														title="Summarise Text"
+														subtitle="Ask me to summarise an article."
+														iconSrc="sap-icon://menu"
+														press=".onClicked"
+														 />
+												</f:header>
+										</f:Card>
+										<f:Card class="sapUiMediumMargin" width="300px" press=".onClicked" semanticRole="ListItem">
+												<f:header>
+													<card:Header
+														title="Create an agenda"
+														subtitle="Let me create a meeting agenda for your topic."
+														iconSrc="sap-icon://meeting-room"
+														press=".onClicked"
+														 />
+												</f:header>
+										</f:Card>
+									</HBox>
+									<HBox class="inputContainer" alignItems="Center" justifyContent="FlexEnd">
+										<Button
+											class="sapUiLargeMarginBegin"
+											icon="sap-icon://attachment" 
+											press="onStartNewChat"
+											type="Transparent">
+										</Button>
+										<MenuButton text="GPT-4o" type="Transparent">
+											<menu>
+												<Menu itemSelected="onMenuAction">
+													<MenuItem text="Gemini 2.0 Flash" />
+													<MenuItem text="Claude Sonnet 3.5"/>
+												</Menu>
+											</menu>
+										</MenuButton>
+										<TextArea id="userInputTextArea" class="inputText" placeholder="Ask GenAI anything..."  width="71%" liveChange=".onInputChange">
+											<layoutData>
+												<FlexItemData growFactor="1" />
+											</layoutData>
+										</TextArea>
+	
+										<Button
+											class="sapUiSmallMarginEnd"
+											icon="sap-icon://microphone" 
+											press="onStartNewChat"
+											type="Transparent">
+										</Button>
+										<Button
+											id="sendBtn"
+											class="sendBtn"
+											icon="sap-icon://paper-plane" 
+											press="onInitializeChat"
+											type="Emphasized"
+											enabled="false">
+										</Button>
+									</HBox>
+								</VBox>
+							</content>
+							<footer>
+								<Bar class="chatFooterBar" >
+									<contentMiddle>
+										<Text text="This chat is powered by generative AI and all output should be reviewed before use. Please do not enter any sensitive personal data, and avoid entering any other personal data you do not wish to be processed." 
+											class="sapUiTinyMargin" />
+									</contentMiddle>
+								</Bar>
+							</footer>
+						</Page>
+					<ScrollContainer id="root2" horizontal="false" vertical="true" height="100%">
+						<Text text="This is the root page of the second element"/>
+					</ScrollContainer>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>
